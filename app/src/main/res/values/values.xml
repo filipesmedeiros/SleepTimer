@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">Sleep Timer</string>
+    <string name="app_name">Sleep Timer BT</string>
 
     <!--region Tile-->
     <string name="tile_subtitle">Tap to start</string>
@@ -8,7 +8,7 @@
 
     <!--region Notification-->
     <item name="notification_id" type="id" />
-    <string name="notification_channel_id">sleep_timer</string>
+    <string name="notification_channel_id">sleep_timer_bt</string>
     <!--endregion-->
 
 </resources>

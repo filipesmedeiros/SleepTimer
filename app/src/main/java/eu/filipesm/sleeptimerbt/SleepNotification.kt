@@ -1,4 +1,4 @@
-package fr.smarquis.sleeptimer
+package eu.filipesm.sleeptimerbt
 
 import android.app.Notification
 import android.app.Notification.CATEGORY_EVENT
@@ -11,30 +11,31 @@ import android.app.PendingIntent.FLAG_IMMUTABLE
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Icon
-import fr.smarquis.sleeptimer.SleepNotification.Action.CANCEL
-import fr.smarquis.sleeptimer.SleepNotification.Action.DECREMENT
-import fr.smarquis.sleeptimer.SleepNotification.Action.INCREMENT
+import eu.filipesm.sleeptimerbt.SleepNotification.Action.CANCEL
+import eu.filipesm.sleeptimerbt.SleepNotification.Action.DECREMENT
+import eu.filipesm.sleeptimerbt.SleepNotification.Action.INCREMENT
 import java.lang.System.currentTimeMillis
 import java.text.DateFormat
 import java.text.DateFormat.SHORT
 import java.util.Date
 import java.util.concurrent.TimeUnit.MILLISECONDS
 import java.util.concurrent.TimeUnit.MINUTES
+import java.util.concurrent.TimeUnit.SECONDS
 
 object SleepNotification {
 
     private val TIMEOUT_INITIAL_MILLIS = MINUTES.toMillis(30)
-    private val TIMEOUT_INCREMENT_MILLIS = MINUTES.toMillis(10)
+    private val TIMEOUT_INCREMENT_MILLIS = SECONDS.toMillis(20)
     private val TIMEOUT_DECREMENT_MILLIS = MINUTES.toMillis(10)
 
     private enum class Action(private val value: String) {
-        CANCEL("fr.smarquis.sleeptimer.action.CANCEL") {
+        CANCEL("eu.filipesm.sleeptimerbt.action.CANCEL") {
             override fun title(context: Context) = context.getText(android.R.string.cancel)
         },
-        INCREMENT("fr.smarquis.sleeptimer.action.INCREMENT") {
+        INCREMENT("eu.filipesm.sleeptimerbt.action.INCREMENT") {
             override fun title(context: Context) = "+" + MILLISECONDS.toMinutes(TIMEOUT_INCREMENT_MILLIS)
         },
-        DECREMENT("fr.smarquis.sleeptimer.action.DECREMENT") {
+        DECREMENT("eu.filipesm.sleeptimerbt.action.DECREMENT") {
             override fun title(context: Context) = "-" + MILLISECONDS.toMinutes(TIMEOUT_DECREMENT_MILLIS)
         },
         ;

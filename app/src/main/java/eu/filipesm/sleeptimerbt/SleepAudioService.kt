@@ -1,8 +1,9 @@
-package fr.smarquis.sleeptimer
+package eu.filipesm.sleeptimerbt
 
 import android.app.PendingIntent
 import android.app.PendingIntent.FLAG_IMMUTABLE
 import android.content.Context
+import android.util.Log
 import android.content.Intent
 import android.media.AudioAttributes
 import android.media.AudioAttributes.CONTENT_TYPE_MUSIC
@@ -12,8 +13,10 @@ import android.media.AudioManager
 import android.media.AudioManager.ADJUST_LOWER
 import android.media.AudioManager.AUDIOFOCUS_GAIN
 import android.media.AudioManager.STREAM_MUSIC
-import fr.smarquis.sleeptimer.SleepTileService.Companion.requestTileUpdate
+import eu.filipesm.sleeptimerbt.SleepTileService.Companion.requestTileUpdate
 import java.util.concurrent.TimeUnit.SECONDS
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothManager
 
 @Suppress("DEPRECATION")
 class SleepAudioService : android.app.IntentService("SleepAudioService") {
@@ -21,7 +24,7 @@ class SleepAudioService : android.app.IntentService("SleepAudioService") {
     companion object {
         private val FADE_STEP_MILLIS = SECONDS.toMillis(1)
         private val RESTORE_VOLUME_MILLIS = SECONDS.toMillis(2)
-
+        
         private fun intent(context: Context) = Intent(context, SleepAudioService::class.java)
         fun pendingIntent(context: Context): PendingIntent? = PendingIntent.getService(context, 0, intent(context), FLAG_IMMUTABLE)
     }
@@ -45,9 +48,16 @@ class SleepAudioService : android.app.IntentService("SleepAudioService") {
         Thread.sleep(RESTORE_VOLUME_MILLIS)
         setStreamVolume(STREAM_MUSIC, volumeIndex, 0)
         abandonAudioFocusRequest(focusRequest)
-
+        
         // update tile
         requestTileUpdate()
+
+        Thread.sleep(5000)
+        val bluetoothManager: BluetoothManager = getSystemService(BluetoothManager::class.java)
+        val bluetoothAdapter: BluetoothAdapter? = bluetoothManager.getAdapter()
+        if(bluetoothAdapter != null) {
+            bluetoothAdapter.disable()
+        }
     } ?: Unit
 
 }

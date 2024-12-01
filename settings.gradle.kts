@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SleepTimer"
+rootProject.name = "SleepTimerBT"
 include(":app")

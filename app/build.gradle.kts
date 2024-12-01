@@ -5,26 +5,26 @@ plugins {
     alias(libs.plugins.android.kotlin)
 }
 
-val versionMajor = 1
-val versionMinor = 3
-val versionPatch = 1
+val versionMajor = 0
+val versionMinor = 1
+val versionPatch = 0
 val versionBuild = 0
 
 android {
     compileSdk = 35
     defaultConfig {
-        applicationId = "fr.smarquis.sleeptimer"
-        namespace = "fr.smarquis.sleeptimer"
-        minSdk = 26
+        applicationId = "eu.filipesm.sleeptimerbt"
+        namespace = "eu.filipesm.sleeptimerbt"
+        minSdk = 31
         targetSdk = 35
         versionCode = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
         versionName = "$versionMajor.$versionMinor.$versionPatch"
     }
     signingConfigs {
         getByName("debug") {
-            keyAlias = "sleeptimer"
-            keyPassword = "sleeptimer"
-            storePassword = "sleeptimer"
+            keyAlias = "sleeptimerbt"
+            keyPassword = "sleeptimerbt"
+            storePassword = "sleeptimerbt"
             storeFile = file("debug.keystore")
         }
     }

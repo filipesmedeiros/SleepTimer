@@ -1,4 +1,4 @@
-package fr.smarquis.sleeptimer
+package eu.filipesm.sleeptimerbt
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent.FLAG_IMMUTABLE
@@ -13,10 +13,10 @@ import android.provider.Settings
 import android.service.quicksettings.Tile.STATE_ACTIVE
 import android.service.quicksettings.Tile.STATE_INACTIVE
 import android.service.quicksettings.TileService
-import fr.smarquis.sleeptimer.SleepNotification.find
-import fr.smarquis.sleeptimer.SleepNotification.handle
-import fr.smarquis.sleeptimer.SleepNotification.notificationManager
-import fr.smarquis.sleeptimer.SleepNotification.toggle
+import eu.filipesm.sleeptimerbt.SleepNotification.find
+import eu.filipesm.sleeptimerbt.SleepNotification.handle
+import eu.filipesm.sleeptimerbt.SleepNotification.notificationManager
+import eu.filipesm.sleeptimerbt.SleepNotification.toggle
 import java.text.DateFormat.SHORT
 import java.text.DateFormat.getTimeInstance
 import java.util.Date

@@ -1,4 +1,4 @@
-Sleep Timer helps you fall asleep while listening to music or podcasts.
+Sleep Timer BT helps you fall asleep while listening to music or podcasts.
 When the timer stops, audio playback is gradually lowered then paused.
 
 1. Add the Tile in the Quick Settings panel.
@@ -7,4 +7,4 @@ When the timer stops, audio playback is gradually lowered then paused.
 
 <u>Note:</u> Don't look for a launcher icon, this app only provides a Quick Settings Tile.
 
-Open Source project hosted on GitHub: https://github.com/SimonMarquis/SleepTimer
+Open Source project hosted on GitHub: https://github.com/filipesmedeiros/SleepTimer
